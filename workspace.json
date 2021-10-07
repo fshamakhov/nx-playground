@@ -1,6 +1,28 @@
 {
   "version": 2,
   "projects": {
+    "api-posts": {
+      "root": "libs/api/posts",
+      "sourceRoot": "libs/api/posts/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/api/posts/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api/posts"],
+          "options": {
+            "jestConfig": "libs/api/posts/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "public-front": {
       "root": "apps/public-front",
       "sourceRoot": "apps/public-front",
