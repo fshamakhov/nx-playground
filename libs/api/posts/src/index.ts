@@ -9,7 +9,7 @@ const postsDirectory = path.join(process.cwd(), 'libs/api/posts/posts');
 export function getSortedPostsData() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
+  const allPostsData = fileNames.filter((filename) => /.*\.md/.test(filename)).map((fileName) => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, '');
 
