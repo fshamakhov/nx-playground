@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React from 'react';
 
 const name = 'Fedor Shamakhov';
-export const siteTitle = 'Next.js sample website';
+export const siteTitle = 'Fedor Shamakhov';
 
 /* eslint-disable-next-line */
 export interface LayoutProps {
@@ -17,11 +17,13 @@ const Layout: React.FC<LayoutProps> = ({ children, home }) => {
   return (
     <div className={styles.container}>
       <Head>
+        <title>Title</title>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"
         />
+        <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet" />
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
@@ -30,6 +32,11 @@ const Layout: React.FC<LayoutProps> = ({ children, home }) => {
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154479217-1" />
+        <script dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-154479217-1');`,
+        }}>
+        </script>
       </Head>
       <header className={styles.header}>
         {home ? (
@@ -74,6 +81,14 @@ const Layout: React.FC<LayoutProps> = ({ children, home }) => {
           </Link>
         </div>
       )}
+      <footer>
+        <div className="inner">
+          <p>Powered by
+            <img id="QLDisp" src="/images/QLDisp.svg" alt="QLDisp" />
+            <a href="https://www.nginx.com/">Nginx</a>
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };

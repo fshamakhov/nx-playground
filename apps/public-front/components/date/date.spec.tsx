@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import FirstPost from './first-post';
+import Date from './date';
 
-describe('FirstPost', () => {
+describe('Date', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<FirstPost />);
+    const { baseElement } = render(<Date />);
     expect(baseElement).toBeTruthy();
   });
 });
