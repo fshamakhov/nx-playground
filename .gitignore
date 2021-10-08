@@ -7,6 +7,7 @@
 
 # dependencies
 /node_modules
+/.yarn
 
 # IDEs and editors
 /.idea
@@ -37,3 +38,23 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+**/.env.local
+**/.local.env
+
+# Graphql Dev Schema
+remote-schema.graphql
+
+# Miration schema for `nx migrate` (bump version of workspace @nrwl/workspace)
+migrations.json
+
+# Please use yarn and yarn.lock
+package-lock.json
+
+# test coverage
+.junit
+
+# generator
+./src
+
+.graphqlconfig
+schema.graphql

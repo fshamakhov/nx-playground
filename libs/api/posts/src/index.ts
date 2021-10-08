@@ -1,4 +1,4 @@
-import * as  path from 'path';
+import * as path from 'path';
 import * as fs from 'fs';
 import matter from 'gray-matter';
 import remark from 'remark';
@@ -9,7 +9,7 @@ const postsDirectory = path.join(process.cwd(), 'libs/api/posts/posts');
 export function getSortedPostsData() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map(fileName => {
+  const allPostsData = fileNames.map((fileName) => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, '');
 
@@ -24,7 +24,7 @@ export function getSortedPostsData() {
     return {
       id,
       date: new Date(),
-      ...matterResult.data
+      ...matterResult.data,
     };
   });
   // Sort posts by date
@@ -55,11 +55,11 @@ export function getAllPostIds() {
   //     }
   //   }
   // ]
-  return fileNames.map(fileName => {
+  return fileNames.map((fileName) => {
     return {
       params: {
-        id: fileName.replace(/\.md$/, '')
-      }
+        id: fileName.replace(/\.md$/, ''),
+      },
     };
   });
 }
@@ -81,6 +81,6 @@ export async function getPostData(id: string) {
   return {
     id,
     contentHtml,
-    ...matterResult.data
+    ...matterResult.data,
   };
 }

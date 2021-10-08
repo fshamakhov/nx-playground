@@ -23,7 +23,10 @@ const Layout: React.FC<LayoutProps> = ({ children, home }) => {
           name="description"
           content="Learn how to build a personal website using Next.js"
         />
-        <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap"
+          rel="stylesheet"
+        />
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
@@ -32,11 +35,15 @@ const Layout: React.FC<LayoutProps> = ({ children, home }) => {
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154479217-1" />
-        <script dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-154479217-1');`,
-        }}>
-        </script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-154479217-1"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-154479217-1');`,
+          }}
+        />
       </Head>
       <header className={styles.header}>
         {home ? (
@@ -83,7 +90,8 @@ const Layout: React.FC<LayoutProps> = ({ children, home }) => {
       )}
       <footer>
         <div className="inner">
-          <p>Powered by
+          <p>
+            Powered by
             <img id="QLDisp" src="/images/QLDisp.svg" alt="QLDisp" />
             <a href="https://www.nginx.com/">Nginx</a>
           </p>

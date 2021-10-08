@@ -9,8 +9,8 @@ export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {
     props: {
-      allPostsData
-    }
+      allPostsData,
+    },
   };
 }
 
@@ -28,11 +28,20 @@ export function Home({ allPostsData }) {
       <section className={utilStyles.headingMd}>
         <p>Hi! My name is Fedor Shamakhov</p>
         <p>I am a web developer and former physical engineer</p>
-        <p>Currently I work at <a href='https://itsumma.ru'>ITSumma</a></p>
-        <p>My email: <a href='mailto:fedor.shamakhov@gmail.com'>fedor.shamakhov@gmail.com</a></p>
-        <p>Telegram: <a href='tg://resolve?domain=fshamakhov'>@fshamakhov</a></p>
+        <p>
+          Currently I work at <a href="https://itsumma.ru">ITSumma</a>
+        </p>
+        <p>
+          My email:{' '}
+          <a href="mailto:fedor.shamakhov@gmail.com">
+            fedor.shamakhov@gmail.com
+          </a>
+        </p>
+        <p>
+          Telegram: <a href="tg://resolve?domain=fshamakhov">@fshamakhov</a>
+        </p>
       </section>
-      {allPostsData.length > 0 ?
+      {allPostsData && allPostsData.length > 0 ? (
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <h2 className={utilStyles.headingLg}>Blog</h2>
           <ul className={utilStyles.list}>
@@ -49,8 +58,7 @@ export function Home({ allPostsData }) {
             ))}
           </ul>
         </section>
-        : null
-      }
+      ) : null}
     </Layout>
   );
 }

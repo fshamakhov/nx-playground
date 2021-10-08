@@ -1,4 +1,12 @@
 # Add files here to ignore them from prettier formatting
 
+.idea
 /dist
 /coverage
+*.graphql
+.vscode/*
+README.md
+.gitlab-ci.yml
+/**/migrations/*
+/migrations.json
+/helm/*

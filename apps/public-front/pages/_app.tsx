@@ -4,7 +4,9 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
 declare global {
-  interface Window { gtag: any }
+  interface Window {
+    gtag: any;
+  }
 }
 
 function CustomApp({ Component, pageProps }: AppProps) {
