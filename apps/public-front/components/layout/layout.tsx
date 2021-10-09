@@ -14,7 +14,7 @@ export interface LayoutProps {
 }
 
 const hostname = process.env.NEXT_PUBLIC_HOSTNAME || 'localhost';
-const scheme = hostname === 'localhost' ? 'http' : 'https';
+const scheme = process.env.NEXT_PUBLIC_SCHEME ||'https';
 const port = process.env.NEXT_PUBLIC_PORT ? `:${process.env.NEXT_PUBLIC_PORT}` : '';
 
 const Layout: React.FC<LayoutProps> = ({ children, home }) => {
