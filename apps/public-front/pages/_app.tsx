@@ -13,7 +13,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   const handleRouteChange = (url) => {
-    window.gtag('config', 'UA-154479217-1', {
+    window.gtag('config', process.env.NEXT_PUBLIC_GA_ID, {
       page_path: url,
     });
   };

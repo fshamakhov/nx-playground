@@ -13,9 +13,9 @@ export interface LayoutProps {
   home?: boolean;
 }
 
-const hostname = process.env.HOSTNAME || 'localhost';
+const hostname = process.env.NEXT_PUBLIC_HOSTNAME || 'localhost';
 const scheme = hostname === 'localhost' ? 'http' : 'https';
-const port = hostname === 'localhost' ? ':3000' : '';
+const port = process.env.NEXT_PUBLIC_PORT ? `:${process.env.NEXT_PUBLIC_PORT}` : '';
 
 const Layout: React.FC<LayoutProps> = ({ children, home }) => {
   return (
@@ -42,11 +42,11 @@ const Layout: React.FC<LayoutProps> = ({ children, home }) => {
         <meta name="twitter:description" content="Fedor Shamakhov, web developer from Siberia" />
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-154479217-1"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-154479217-1');`,
+            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');`,
           }}
         />
       </Head>
