@@ -13,15 +13,19 @@ export interface LayoutProps {
   home?: boolean;
 }
 
+const hostname = process.env.HOSTNAME || 'localhost';
+const scheme = hostname === 'localhost' ? 'http' : 'https';
+const port = hostname === 'localhost' ? ':3000' : '';
+
 const Layout: React.FC<LayoutProps> = ({ children, home }) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Title</title>
+        <title>Fedor Shamakhov</title>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="Fedor Shamakhov, web developer from Siberia"
         />
         <link
           href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap"
@@ -29,12 +33,13 @@ const Layout: React.FC<LayoutProps> = ({ children, home }) => {
         />
         <meta
           property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+          content={`${scheme}://${hostname}${port}/images/vardzia.jpg`}
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Fedor Shamakhov" />
+        <meta name="twitter:site" content="@Electron160zC" />
+        <meta name="twitter:description" content="Fedor Shamakhov, web developer from Siberia" />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=UA-154479217-1"
